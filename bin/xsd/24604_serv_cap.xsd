@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ss="http://uri.etsi.org/ngn/params/xml/simservs/xcap"  targetNamespace="http://uri.etsi.org/ngn/params/xml/simservs/xcap" elementFormDefault="qualified" attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:documentation xml:lang="en">
+      This schema defines elements that are used to inform the UE which conditions and actions the 
+      network support.
+      </xs:documentation>
+   </xs:annotation>
+   <xs:include schemaLocation="XCAP.xsd"/>
+   <xs:element name="communication-diversion-serv-cap" substitutionGroup="ss:absService">
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="ss:simservType">
+               <xs:sequence>
+                  <xs:element name="serv-cap-conditions" minOccurs="0">
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="serv-cap-anonymous" type="ss:provisioned-type" 
+                              minOccurs="0"/>
+                           <xs:element name="serv-cap-busy" type="ss:provisioned-type" 
+                              minOccurs="0"/>
+                           <xs:element name="serv-cap-external-list" type="ss:provisioned-type"
+                               minOccurs="0"/>
+                           <xs:element name="serv-cap-identity" type="ss:provisioned-type" 
+                              minOccurs="0"/>
+                           <xs:element name="serv-cap-media" type="ss:supported-media-type"
+                              minOccurs="0"/>
+                           <xs:element name="serv-cap-not-registered" type="ss:provisioned-type"
+                               minOccurs="0"/>
+                           <xs:element name="serv-cap-no-answer" type="ss:provisioned-type" 
+                              minOccurs="0"/>
+                           <xs:element name="serv-cap-not-reachable" type="ss:provisioned-type"
+                               minOccurs="0"/>
+                           <xs:element name="serv-cap-presence-status" type="ss:provisioned-type"  
+                              minOccurs="0"/>
+                           <xs:element name="serv-cap-rule-deactivated" type="ss:provisioned-type" 
+                               minOccurs="0"/>
+                           <xs:element name="serv-cap-validity" type="ss:provisioned-type" 
+                              minOccurs="0"/>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="serv-cap-actions" minOccurs="0">
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="serv-cap-target" type="ss:provisioned-target-type"
+                              minOccurs="0"/>
+						   <xs:element name="serv-cap-notify-caller" type="ss:provisioned-type"
+                              minOccurs="0"/>
+                           <xs:element name="serv-cap-notify-served-user" type="ss:provisioned-type"
+                               minOccurs="0"/>
+                           <xs:element name="serv-cap-notify-served-user-on-outbound-call" 
+                              type="ss:provisioned-type" minOccurs="0"/>
+                           <xs:element name="serv-cap-reveal-identity-to-caller" 
+                              type="ss:provisioned-type" minOccurs="0"/>
+                           <xs:element name="serv-cap-reveal-served-user-identity-to-caller" 
+                              type="ss:provisioned-type" minOccurs="0"/>
+                           <xs:element name="serv-cap-reveal-identity-to-target" 
+                              type="ss:provisioned-type" minOccurs="0"/>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

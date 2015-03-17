@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cp:ruleset xmlns:ocp="urn:oma:xml:xdm:common-policy" xmlns:cp="urn:ietf:params:xml:ns:common-policy" xmlns="http://uri.etsi.org/ngn/params/xml/simservs/xcap">
+    <cp:rule>
+        <cp:conditions>
+            <busy/>
+            <ocp:external-list>
+                <ocp:entry anc="123@ebupt.com"/>
+            </ocp:external-list>
+        </cp:conditions>
+        <cp:actions>
+            <allow>false</allow>
+        </cp:actions>
+    </cp:rule>
+</cp:ruleset>

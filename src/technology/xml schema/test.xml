@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<simservs xmlns="http://uri.etsi.org/ngn/params/xml/simservs/xcap" xmlns:ocp="urn:oma:xml:xdm:common-policy" xmlns:cp="urn:ietf:params:xml:ns:common-policy">  
+  <originating-identity-presentation-restriction active="false"/>  
+  <originating-identity-presentation active="false"/>  
+  <terminating-identity-presentation active="false"/>  
+  <terminating-identity-presentation-restriction active="false"/>  
+  <communication-waiting active="true"/>  
+  <outgoing-communication-barring active="true"> 
+    <cp:ruleset> 
+      <cp:rule id="barring-of-all-outgoing-calls"> 
+        <cp:conditions> 
+          <rule-deactivated/> 
+        </cp:conditions>  
+        <cp:actions> 
+          <allow>false</allow> 
+        </cp:actions> 
+      </cp:rule>  
+      <cp:rule id="barring-of-outgoing-international-calls">  
+        <cp:conditions> 
+          <international/> 
+        </cp:conditions>  
+        <cp:actions> 
+          <allow>false</allow> 
+        </cp:actions> 
+      </cp:rule>  
+      <cp:rule id="barring-of-outgoing-international-calls-ex-home-country"> 
+        <cp:conditions> 
+          <international-exHC/>  
+          <rule-deactivated/> 
+        </cp:conditions>  
+        <cp:actions> 
+          <allow>false</allow> 
+        </cp:actions> 
+      </cp:rule> 
+    </cp:ruleset> 
+  </outgoing-communication-barring>  
+  <incoming-communication-barring active="true"> 
+    <cp:ruleset> 
+      <cp:rule id="barring-of-all-incoming-calls"> 
+        <cp:conditions/>  
+        <cp:actions> 
+          <allow>false</allow> 
+        </cp:actions> 
+      </cp:rule>  
+      <cp:rule id="barring-of-incoming-calls-when-roaming"> 
+        <cp:conditions> 
+          <roaming/>  
+          <rule-deactivated/> 
+        </cp:conditions>  
+        <cp:actions> 
+          <allow>false</allow> 
+        </cp:actions> 
+      </cp:rule> 
+    </cp:ruleset> 
+  </incoming-communication-barring>  
+  <communication-diversion active="true"> 
+    <NoReplyTimer>180</NoReplyTimer>  
+    <cp:ruleset> 
+      <cp:rule id="call-forwarding-unconditional"> 
+        <cp:conditions> 
+          <rule-deactivated/>  
+          <time>07:00,10:20</time>
+          <media>audio</media>  
+          <media>video</media> 
+        </cp:conditions>  
+        <cp:actions> 
+          <forward-to> 
+            <target>sip:+8613412345678@chinamobile.com</target>  
+            <notify-caller>true</notify-caller>  
+            <reveal-identity-to-caller>false</reveal-identity-to-caller>  
+            <reveal-identity-to-target>true</reveal-identity-to-target> 
+          </forward-to> 
+        </cp:actions> 
+      </cp:rule> 
+    </cp:ruleset> 
+  </communication-diversion>  
+  <communication-barring-serv-cap active="true"> 
+    <serv-cap-conditions> 
+      <serv-cap-anonymous provisioned="false"/>  
+      <serv-cap-communication-diverted provisioned="false"/>  
+      <serv-cap-external-list provisioned="false"/>  
+      <serv-cap-identity provisioned="false"/>  
+      <serv-cap-international provisioned="true"/>  
+      <serv-cap-international-exHC provisioned="true"/>  
+      <serv-cap-media> 
+        <no-media/> 
+      </serv-cap-media>  
+      <serv-cap-other-identity provisioned="false"/>  
+      <serv-cap-presence-status provisioned="false"/>  
+      <serv-cap-roaming provisioned="true"/>  
+      <serv-cap-rule-deactivated provisioned="true"/>  
+      <serv-cap-validity provisioned="false"/> 
+    </serv-cap-conditions> 
+  </communication-barring-serv-cap>  
+  <communication-diversion-serv-cap active="true"> 
+    <serv-cap-conditions> 
+      <serv-cap-anonymous provisioned="false"/>  
+      <serv-cap-busy provisioned="true"/>  
+      <serv-cap-external-list provisioned="false"/>  
+      <serv-cap-identity provisioned="false"/>  
+      <serv-cap-media> 
+        <all-media/> 
+      </serv-cap-media>  
+      <serv-cap-not-registered provisioned="true"/>  
+      <serv-cap-no-answer provisioned="true"/>  
+      <serv-cap-not-reachable provisioned="true"/>  
+      <serv-cap-presence-status provisioned="false"/>  
+      <serv-cap-rule-deactivated provisioned="true"/>  
+      <serv-cap-validity provisioned="true"/> 
+    </serv-cap-conditions>  
+    <serv-cap-actions> 
+      <serv-cap-target> 
+        <telephony-type/> 
+      </serv-cap-target>  
+      <serv-cap-notify-served-user provisioned="false"/>  
+      <serv-cap-notify-served-user-on-outbound-call provisioned="false"/>  
+      <serv-cap-reveal-identity-to-caller provisioned="true"/>  
+      <serv-cap-reveal-served-user-identity-to-caller provisioned="true"/>  
+      <serv-cap-reveal-identity-to-target provisioned="true"/> 
+    </serv-cap-actions> 
+  </communication-diversion-serv-cap> 
+</simservs>
